@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, ScrollView, TouchableOpacity, KeyboardAvoidingView} from 'react-native';
 import Note from './Note';
+//import { CheckBox } from 'react-native-elements';
 export default class App extends React.Component {
 
     constructor(props){
@@ -12,7 +13,7 @@ export default class App extends React.Component {
     }
     render() {
 
-        isStrikeThrough: false;
+        //isStrikeThrough: false;
         let notes = this.state.noteArray.map((val,key) => {
             return <Note key={key} keyval={key} val={val}
                    deleteMethod={ ()=> this.deleteNote(key)}
@@ -28,7 +29,6 @@ export default class App extends React.Component {
 
                 <ScrollView style={styles.scrollContainer}>
                     {notes}
-
                 </ScrollView>
 
 
@@ -74,9 +74,11 @@ export default class App extends React.Component {
         this.setState({noteArray: this.state.noteArray})
     }
 
-    completeNote(){
-        this.setState({isStrikeThrough: !this.state.isStrikeThrough});
-    }
+
+
+
+
+
 }
 
 const styles = StyleSheet.create({
