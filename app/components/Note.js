@@ -5,7 +5,7 @@ import {
     Text,
     StyleSheet,
     TouchableOpacity,
-    TouchableHighlight,
+    TextInput,
 } from 'react-native';
 
 
@@ -19,9 +19,10 @@ export default class Note extends Component {
     }
 
     changeStyle() {
-        
+
         this.setState({
           textColor: 'green',
+            textDecorationLine: 'line-through',
         })
 
     };
@@ -34,17 +35,16 @@ export default class Note extends Component {
 
                 <TouchableOpacity onPress={ () => this.changeStyle()} style={{ height: 30, flexDirection: 'row' }}>
                     {/*<Text style={styles.noteText}>{this.props.val.date}</Text>*/}
-                    <Text style={[styles.noteText, {color:this.state.textColor}]}>{this.props.val.note}</Text>
+                    <TextInput underlineColorAndroid='transparent' style={[styles.noteText,{color:this.state.textColor}, {textDecorationLine: this.state.textDecorationLine}]}>
+                        {this.props.val.note}
+                    </TextInput>
                 </TouchableOpacity>
-                {/*<TouchableOpacity color={this.state.textColor} onPress={onButtonPress}>*/}
-                    {/*<Text style={styles.noteText}>{this.props.val.date}</Text>*/}
-                    {/*<Text style={styles.noteText}>{this.props.val.note}</Text>*/}
-                {/*</TouchableOpacity>*/}
+
 
                 <View style={styles.container}>
-                <TouchableOpacity onPress={this.props.EditMethod} style={styles.noteEdit}>
-                    <Text style={styles.noteEditText}>Edit</Text>
-                </TouchableOpacity>
+                {/*<TouchableOpacity onPress={this.props.EditMethod} style={styles.noteEdit}>*/}
+                    {/*<Text style={styles.noteEditText}>Edit</Text>*/}
+                {/*</TouchableOpacity>*/}
 
                 <TouchableOpacity onPress={this.props.deleteMethod} style={styles.noteDelete}>
                     <Text style={styles.noteDeleteText}>Delete</Text>
